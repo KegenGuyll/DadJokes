@@ -5,7 +5,7 @@ class Joke extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      joke: '',
+      setup: '',
       punchline: '',
       jokeId: ''
     };
@@ -17,13 +17,13 @@ class Joke extends Component {
 
   loadJoke = () => {
     axios
-      .get('https://icanhazdadjoke.com/', {
+      .get('https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random_joke', {
         headers: { Accept: 'application/json' }
       })
       .then(response => {
         this.setState({
-          jokeId: response.data.id,
-          joke: response.data.joke
+          setup: response.data.setup,
+          punchline: response.data.punchline
         });
       });
   };
@@ -37,7 +37,8 @@ class Joke extends Component {
         }}
       >
         <h1>Dad Jokes</h1>
-        {this.state.jokeId ? <p>{this.state.joke}</p> : null}
+        {this.state.setup ? <p>{this.state.setup}</p> : null}
+        {this.state.punchline ? <p>{this.state.punchline}</p> : null}
         <button onClick={this.loadJoke}>New Joke</button>
       </div>
     );
