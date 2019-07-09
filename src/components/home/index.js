@@ -97,27 +97,6 @@ class Joke extends Component {
             </Col>
           </Row>
         </Container>
-        <Modal centered show={this.state.share} onHide={this.handleShare}>
-          <Modal.Header closeButton>
-            <Modal.Title id='contained-modal-title-vcenter'>Title</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <ListGroup variant='flush'>
-              <ListGroupItem>
-                <RedditShareButton
-                  title={this.state.setup}
-                  url={`https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/jokes/${
-                    this.state.jokeId
-                  }`}
-                />
-              </ListGroupItem>
-              <ListGroupItem>hi</ListGroupItem>
-            </ListGroup>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.handleShare}>Close</Button>
-          </Modal.Footer>
-        </Modal>
       </div>
     );
   }
