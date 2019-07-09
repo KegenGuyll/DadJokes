@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Button, Jumbotron, Container} from 'react-bootstrap';
 
 class Joke extends Component {
   constructor(props) {
@@ -30,17 +31,14 @@ class Joke extends Component {
 
   render() {
     return (
-      <div
-        style={{
-          width: '100%',
-          textAlign: 'center'
-        }}
-      >
-        <h1>Dad Jokes</h1>
-        {this.state.setup ? <p>{this.state.setup}</p> : null}
-        {this.state.punchline ? <p>{this.state.punchline}</p> : null}
-        <button onClick={this.loadJoke}>New Joke</button>
-      </div>
+      <Jumbotron fluid>
+        <Container>
+          <h1>Dad Jokes</h1>
+          {this.state.setup ? <p>{this.state.setup}</p> : null}
+          {this.state.punchline ? <p>{this.state.punchline}</p> : null}
+          <Button onClick={this.loadJoke} variant="primary" size="lg">New Joke</Button>
+        </Container>
+      </Jumbotron>
     );
   }
 }
