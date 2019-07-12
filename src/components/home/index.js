@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Button, Jumbotron, Container, Accordion, Card} from 'react-bootstrap';
+import "./index.css";
 
 class Joke extends Component {
   constructor(props) {
@@ -31,22 +32,19 @@ class Joke extends Component {
 
   render() {
     return (
-      <Jumbotron fluid>
-        <Container>
-          <h1>Dad Jokes</h1>
+      <Card style={{ background: '#6B5B7B', color: 'white'}}>
+        <Card.Body>
+          <Card.Title>Dad Jokes</Card.Title>
           <Accordion>
-            <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="0">
-              {this.state.setup ? <p>{this.state.setup}</p> : null}
-              </Accordion.Toggle>
-              <Accordion.Collapse eventKey="0">
-                <Card.Body>{this.state.punchline ? <p>{this.state.punchline}</p> : null}</Card.Body>
-              </Accordion.Collapse>
-            </Card>
+          {this.state.setup ? <Card.Text>{this.state.setup}</Card.Text> : null}
+          <Accordion.Collapse eventKey="0">
+                <Card.Text>{this.state.punchline ? <p>{this.state.punchline}</p> : null}</Card.Text>
+          </Accordion.Collapse>
+          <Accordion.Toggle as={Button}  style={{ background: '#F7B195', border: 'none'}} size="lg" eventKey="0" block>Reveal Punchline</Accordion.Toggle>
+          <Button onClick={this.loadJoke} style={{ background: '#F7B195', border: 'none'}} size="lg" block>New Joke</Button>
           </Accordion>
-          <Button onClick={this.loadJoke} variant="primary" size="lg">New Joke</Button>
-        </Container>
-      </Jumbotron>
+        </Card.Body>
+      </Card>
     );
   }
 }
