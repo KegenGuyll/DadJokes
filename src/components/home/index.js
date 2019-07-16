@@ -49,8 +49,9 @@ class Joke extends Component {
               <Accordion.Collapse eventKey="0">
                     <Card.Text>{this.state.punchline ? <p>{this.state.punchline}</p> : null}</Card.Text>
               </Accordion.Collapse>
-              <Accordion.Toggle as={Button}  style={{ background: '#F67280', border: 'none'}} size="lg" eventKey="0" block>Reveal Punchline</Accordion.Toggle>
-              <Button onClick={this.loadJoke} style={{ background: '#F67280', border: 'none'}} size="lg" block>New Joke</Button>
+              <Accordion.Toggle as={Button} style={{ background: '#F67280', border: 'none'}} size="lg" eventKey="0" block>Reveal Punchline</Accordion.Toggle>
+              <Accordion.Toggle as={Button} onClick={this.loadJoke} style={{ background: '#F67280', border: 'none'}} size="lg" eventKey="1" block>New Joke</Accordion.Toggle>
+             
               </Accordion>
             </Card.Body>
           </Card>
